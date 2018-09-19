@@ -35,12 +35,24 @@ public class Calculate {
 	
 	//returns a double
 	public static double toDegrees(double number) {
-		double radians = number*180/3.14159;
-		return radians;
+		double degrees = number*180/3.14159;
+		return degrees;
 	}
 	
 	//returns a double
 	public static double toRadians(double number) {
-		
+		double radians = number*3.14159/180;
+		return radians;
+	}
+	
+	//returns value of discriminant. returns a double
+	public static double discriminant(double a,double b,double c) {
+		return b*b-4*a*c;
+	}
+	
+	//returns a String
+	public static String toImproperFrac(int a,int b,int c) {
+		int numerator= a*c+b;
+		return numerator+"/"+c;
 	}
 }
