@@ -55,4 +55,16 @@ public class Calculate {
 		int numerator= a*c+b;
 		return numerator+"/"+c;
 	}
+	
+	//returns a String
+	public static String toMixedNum(int a,int b) {
+		int wholeNum=a/b;
+		int numerator=a%b;
+		return wholeNum+ " "+ numerator + "/" + b;
+	}
+	
+	//converts binomial multiplication (ax+b)(cx+d) into quadratic equation ax^2+bx+c returns a string
+	public static String foil(int a,int b,int c,int d,String x) }
+		quadratic ax^2+bx+c
+	}
 }
