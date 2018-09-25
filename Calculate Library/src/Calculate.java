@@ -64,7 +64,65 @@ public class Calculate {
 	}
 	
 	//converts binomial multiplication (ax+b)(cx+d) into quadratic equation ax^2+bx+c returns a string
-	public static String foil(int a,int b,int c,int d,String x) }
-		quadratic ax^2+bx+c
+	public static String foil(int a,int b,int c,int d,String n) {
+		String quadratic = "(ax+b)+(cx+d)";
+		quadratic = (a*c+n + "^2"+ "+" + (a*d+c*b+n)+ "+" +b*d);
+		return quadratic;
 	}
+	
+	//determines if an integer is evenly divisible by another. accepts two integers. returns boolean
+	public static boolean isDivisibleBy(int a,int b) {
+		if(a/b==0) {
+			return true;
+		}else {
+			return false;
+	}
+}	
+	//returns absolute value of number passed. accepts double, returns double
+	public static double absValue(int a) {
+		if(a<0) {
+			return -a;
+		}else {
+			return a;
+	}
+}	
+	//returns larger values passed. accepts two doubles and returns a double
+	public static double max(int a, int b) {
+		if(a>b) {
+			return a;
+		}else {
+			return b;
+	}
+}		
+	//accepts three doubles. returns a double
+	public static double max(int a,int b,int c) {
+		if(a>b) {
+			if(a>c) {
+				return a;
+			}else {
+				return c;
+			}
+		}else {
+				if(b>c) {
+					return b;
+				}else {
+					return c;	
+				}
+		}
 }
+	
+	//returns smaller value. accepts two integers. returns one integer
+	public static double min(int a, int b) {
+		if(a>b) {
+			return b;
+		}else {
+			return a;
+		}
+}		
+	//rounds double two decimal places. returns a double
+	/*public static double round2(double a) {
+		if(a>0) {
+			
+	}*/
+	}
+//}
