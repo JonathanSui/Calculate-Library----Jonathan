@@ -22,5 +22,7 @@ public class DoMath {
 		System.out.println(Calculate.max(7, 8));
 		System.out.println(Calculate.max(7, 8, 9));
 		System.out.println(Calculate.min(7, 8));
+		System.out.println(Calculate.round2(4.6457));
+		System.out.println(Calculate.exponent(4,3));
 	}
 }

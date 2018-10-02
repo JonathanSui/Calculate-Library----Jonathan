@@ -120,9 +120,30 @@ public class Calculate {
 		}
 }		
 	//rounds double two decimal places. returns a double
-	/*public static double round2(double a) {
+	public static double round2(double a) {
 		if(a>0) {
-			
-	}*/
+			a += 0.005;
+		}else {
+			a -= 0.005;
+		}
+		a *= 100;
+		double round = (int)a;
+		round /= 100;
+		return round;
 	}
-//}
+	
+	//raises value to positive integer power. accepts a double and integer and returns a double
+	public static double exponent(double base,int exponent) {
+		double ans=1; {	
+		}
+		if(exponent > 0) { 
+			for(int i=1;i<=exponent;i++) {
+				ans *= base;
+		}
+		}else {
+			ans = 1;
+		}
+		return ans;
+	}
+}
+	
