@@ -145,5 +145,17 @@ public class Calculate {
 		}
 		return ans;
 	}
+	
+	//returns factorial. it accepts an integer and returns an integer, exponent is positive
+	public static int factorial(int n) {
+		if(n==0)
+			return 1;
+		return n*factorial(n-1);
+	}
+	
+	//determines if an integer is prime or not. accepts an integer and returns a boolean
+	//public static int isPrime(int n) {
+		
+	}
 }
 	
