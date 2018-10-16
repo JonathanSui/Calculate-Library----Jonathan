@@ -154,8 +154,19 @@ public class Calculate {
 	}
 	
 	//determines if an integer is prime or not. accepts an integer and returns a boolean
-	//public static int isPrime(int n) {
+	public static boolean isPrime(int n) {
+		boolean answer = true;
+		for(int a=2; a<n; a++) {
+			if(isDivisibleBy(n,a)) {
+			answer = false;
+			} 
+		}
+		return answer;
+	
+	//gcf will find the largest factor of two different integers. It will accept two positive ints and return an int
+	public static int gcf(int a, int b) {
 		
+	}
 	}
 }
 	
