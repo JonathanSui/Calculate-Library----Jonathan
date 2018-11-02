@@ -3,7 +3,6 @@
  * @version September 6, 2018
  */
 public class Calculate {
-
 	//returns the square of the input
 	public static int square(int number) {
 		int answer;
@@ -11,7 +10,12 @@ public class Calculate {
 		return answer;
 		// returns number*number;
 	}
-	
+	public static double square(double number) {
+		double answer;
+		answer = number*number*number;
+		return answer;
+		// returns number*number;
+	}
 	// write cube. returns the cube of the input
 	public static int cube(int number) {
 		int answer;
@@ -72,14 +76,14 @@ public class Calculate {
 	
 	//determines if an integer is evenly divisible by another. accepts two integers. returns boolean
 	public static boolean isDivisibleBy(int a,int b) {
-		if(a/b==0) {
+		if(a%b==0) {
 			return true;
 		}else {
 			return false;
 	}
 }	
 	//returns absolute value of number passed. accepts double, returns double
-	public static double absValue(int a) {
+	public static double absValue(double a) {
 		if(a<0) {
 			return -a;
 		}else {
@@ -152,7 +156,6 @@ public class Calculate {
 			return 1;
 		return n*factorial(n-1);
 	}
-	
 	//determines if an integer is prime or not. accepts an integer and returns a boolean
 	public static boolean isPrime(int n) {
 		boolean answer = true;
@@ -162,11 +165,35 @@ public class Calculate {
 			} 
 		}
 		return answer;
-	
-	//gcf will find the largest factor of two different integers. It will accept two positive ints and return an int
-	public static int gcf(int a, int b) {
-		
 	}
+	//gcf will find the largest factor of two different integers. It will accept two positive integers and return an integer
+	public static int gcf(int num1, int num2) {
+		int gcf = 0;
+		if (num1>num2) {
+			for(int i=num2; i>= 1; i--) {
+				if(isDivisibleBy(num1, i) && isDivisibleBy(num2, i)) {
+					return i;
+				}
+			}
+		}else {
+			for(int j=num1; j>=1; j--) {
+				if(isDivisibleBy(num1, j) && isDivisibleBy(num2, j)) {
+					return j;
+				}
+			}
+		}
+		return gcf;
 	}
-}
+	//sqrt returns an approximation of square root. it accepts a doouble and returns a double
+	public static double sqrt(double num) {
+		if(num < 0) {
+			throw new IllegalArgumentException("You can't sqrt a negative number, it isn't possible");
+		}
+			double value=1;
+			while(!(absValue(num-square(value))<0.001)) {
+				value = 0.5 * (num / value + value);
+			}
+			return round2(value);
+		}
+	}
 	
