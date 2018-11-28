@@ -6,16 +6,17 @@ public class Calculate {
 	//returns the square of the input
 	public static int square(int number) {
 		int answer;
-		answer = number*number*number;
+		answer = number*number;
 		return answer;
 		// returns number*number;
 	}
 	public static double square(double number) {
 		double answer;
-		answer = number*number*number;
+		answer = number*number;
 		return answer;
 		// returns number*number;
 	}
+	
 	// write cube. returns the cube of the input
 	public static int cube(int number) {
 		int answer;
@@ -76,6 +77,8 @@ public class Calculate {
 	
 	//determines if an integer is evenly divisible by another. accepts two integers. returns boolean
 	public static boolean isDivisibleBy(int a,int b) {
+		if(b==0)
+			throw new IllegalArgumentException("You can't divide by 0");
 		if(a%b==0) {
 			return true;
 		}else {
@@ -91,7 +94,14 @@ public class Calculate {
 	}
 }	
 	//returns larger values passed. accepts two doubles and returns a double
-	public static double max(int a, int b) {
+	public static int max(int a, int b) {
+		if(a>b) {
+			return a;
+		}else {
+			return b;
+	}
+}		
+	public static double max(double a, double b) {
 		if(a>b) {
 			return a;
 		}else {
@@ -99,7 +109,7 @@ public class Calculate {
 	}
 }		
 	//accepts three doubles. returns a double
-	public static double max(int a,int b,int c) {
+	public static int max(int a,int b,int c) {
 		if(a>b) {
 			if(a>c) {
 				return a;
@@ -116,7 +126,14 @@ public class Calculate {
 }
 	
 	//returns smaller value. accepts two integers. returns one integer
-	public static double min(int a, int b) {
+	public static int min(int a, int b) {
+		if(a>b) {
+			return b;
+		}else {
+			return a;
+		}
+}		
+	public static double min(double a, double b) {
 		if(a>b) {
 			return b;
 		}else {
@@ -138,6 +155,8 @@ public class Calculate {
 	
 	//raises value to positive integer power. accepts a double and integer and returns a double
 	public static double exponent(double base,int exponent) {
+		if(exponent<0)
+			throw new IllegalArgumentException("You can't have a negative exponent");
 		double ans=1; {	
 		}
 		if(exponent > 0) { 
@@ -152,6 +171,8 @@ public class Calculate {
 	
 	//returns factorial. it accepts an integer and returns an integer, exponent is positive
 	public static int factorial(int n) {
+		if(n<0)
+			throw new IllegalArgumentException("You can't find the factorial of negative numbers");
 		if(n==0)
 			return 1;
 		return n*factorial(n-1);
@@ -190,10 +211,26 @@ public class Calculate {
 			throw new IllegalArgumentException("You can't sqrt a negative number, it isn't possible");
 		}
 			double value=1;
+			
 			while(!(absValue(num-square(value))<0.001)) {
 				value = 0.5 * (num / value + value);
 			}
 			return round2(value);
 		}
+	//quadForm will 
+	public static String quadForm(int a, int b, int c) {
+		String answer = "no real roots";
+		
+			if(discriminant(a,b,c)>0) {
+				double root1 = round2((-1*b + sqrt(discriminant(a,b,c))) / (2*a));
+				double root2 = round2((-1*b - sqrt(discriminant(a,b,c))) / (2*a));
+				answer = min(root1,root2)+" and "+ max(root1,root2);
+			}else {
+				if(discriminant(a,b,c)==0) {
+					answer = round2((-1*b)/(2*a)) +"";
+				}
+		}
+			return answer;
+	}
 	}
 	
