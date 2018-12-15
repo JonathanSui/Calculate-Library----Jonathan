@@ -10,7 +10,15 @@ public class FracCalc {
     	Scanner userInput= new Scanner(System.in);
     	System.out.println("Give me input");
     	String expression = userInput.nextLine();
-    	System.out.print(produceAnswer(expression));
+    	
+    	while(!expression.equals("quit")) {
+    		System.out.println(produceAnswer(expression));
+    		System.out.println("Give me input");
+        	expression = userInput.nextLine();
+        	
+    	}
+    	
+    	
         // TODO: Read the input from the user and call produceAnswer with an equation
 
    	}
@@ -26,20 +34,33 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-    	String [] splitExpression = input.split("fraction1, fraction2");
-    	String operator = splitExpression[2];
-    	int [] operand1 = fraction1(splitExpression[0]);
-    	int [] operand2 = fraction2(splitExpression[2]);
-        return splitExpression[2];
+    	String [] splitExpression = input.split(" ");
+    	String operator = splitExpression[1];
+    	int [] operand1 = fraction(splitExpression[0]);
+    	int [] operand2 = fraction(splitExpression[2]);
+        return "whole:" + operand2[0] + " numerator:" + operand2[1] + " denominator:" + operand2[2];
     }
-    public static int [] fraction1 (String operand) {
-    	int fraction1 = (0,0,1);
-    	return fraction1;
+    public static int [] fraction (String operand) {
+    	int[] fraction = {0,0,1};
+    	if(operand.contains("_")) {
+    		String [] underscore = operand.split("_");
+    		String [] slash = underscore[1].split("/");
+    		fraction[0] = Integer.parseInt(underscore[0]);
+    		fraction[1] = Integer.parseInt(slash[0]);
+    		fraction[2] = Integer.parseInt(slash[1]);
+    	}else {
+    		if(operand.contains("/")) {
+    			String [] slash = operand.split("/");
+    			fraction[1] = Integer.parseInt(slash[0]);
+    			fraction[2] = Integer.parseInt(slash[1]);
+    		}else {
+    			fraction[0] = Integer.parseInt(operand);
+    		}
+    	}
+    	return fraction;
     }
-    public static int [] fraction2 (String operand) {
-    	int fraction2 = denominator()
-    	return fraction2;
-    }
+   
+   
     }
     // TODO: Fill in the space below with any helper methods that you think you will need
     

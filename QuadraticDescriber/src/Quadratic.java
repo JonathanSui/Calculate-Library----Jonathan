@@ -15,18 +15,13 @@ public class Quadratic {
 		String xIntercept ="x intercept: "+ quadForm(a,b,c);
 		double yvalue= a*xvalue*xvalue + b*xvalue + c;
 		String vertex = "Vertex: ("+xvalue+","+ yvalue + ")";;
-		
-		//double line =(-1*b)/(2*a);
-		//return axisOfSymmetry ;
-		/*if() {
-			axisOfSymmetry = "0";
-		}*/
-		//String yIntercept = "";
+		String yIntercept = "y intercept: " + c;
 		output += equation+"\n";
 		output += direction+"\n";
 		output += axisOfSymmetry+"\n";
 		output += xIntercept+"\n";
 		output += vertex+"\n";
+		output += yIntercept+"\n";
 		//output += yIntercept;
 		return output;
 	}
