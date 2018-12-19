@@ -38,7 +38,9 @@ public class FracCalc {
     	String operator = splitExpression[1];
     	int [] operand1 = fraction(splitExpression[0]);
     	int [] operand2 = fraction(splitExpression[2]);
-        return "whole:" + operand2[0] + " numerator:" + operand2[1] + " denominator:" + operand2[2];
+    	int [] answer = calculator(operand1, operand2, operator);
+    	return answer[0] +"_"+answer[1] +"/"+answer[2];
+      //return "whole:" + operand2[0] + " numerator:" + operand2[1] + " denominator:" + operand2[2];
     }
     public static int [] fraction (String operand) {
     	int[] fraction = {0,0,1};
@@ -57,10 +59,36 @@ public class FracCalc {
     			fraction[0] = Integer.parseInt(operand);
     		}
     	}
+    	fraction [1] = fraction [0] * fraction [2] + fraction [1];
+    	fraction [0] = 0;
     	return fraction;
     }
-   
-   
-    }
+   public static int [] calculator (int [] fraction1, int [] fraction2, String operator) {
+	   int [] calculator = {0,0,1};
+	   if(operator.equals("+")) {
+	   calculator [2] = fraction1 [2] * fraction2 [2];
+	   calculator [1] = fraction1 [1] * fraction2 [2] + fraction2 [1] * fraction1 [2];
+	   }else {
+		   if(operator.equals("-")){
+			  calculator [2] = fraction1 [2] * fraction2 [2];
+			  calculator [1] = fraction1 [1] * fraction2 [2] - fraction2 [1] * fraction1 [2]; 
+		   }
+		   else {
+			   if(operator.equals("*")) {
+				   calculator [2] = fraction1 [2] * fraction2 [2];
+				   calculator [1] = fraction1 [1] * fraction2 [1];
+			   }
+			   else {
+				   if(operator.equals("/")) {
+					   calculator [1] = fraction1 [1] * fraction2 [2];
+					   calculator [2] = fraction1 [2] * fraction2 [1];
+				   }
+			   }
+		   }
+	   }
+	return calculator;
+	      
+   }
+}
     // TODO: Fill in the space below with any helper methods that you think you will need
     
