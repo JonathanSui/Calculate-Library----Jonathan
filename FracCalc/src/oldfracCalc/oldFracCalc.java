@@ -1,9 +1,9 @@
-package fracCalc;
+package oldfracCalc;
 
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class FracCalc {
+public class oldFracCalc {
 
     public static void main(String[] args) 
     {
